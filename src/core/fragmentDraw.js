@@ -1,4 +1,4 @@
-import { create3DContext, initShaders, pointsToBuffer } from 'GLHelper'
+import { create3DContext, initShaders, pointsToBuffer } from './GLHelper'
 
 export class GRender {
   /**
@@ -77,11 +77,7 @@ export class GRender {
     // 索引buffer
     const indexBuffer = this.gl.createBuffer()
     this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, indexBuffer)
-    this.gl.bufferData(
-      this.gl.ELEMENT_ARRAY_BUFFER,
-      pointsToBuffer(indexes, Uint8Array),
-      this.gl.STATIC_DRAW
-    )
+    this.gl.bufferData(this.gl.ELEMENT_ARRAY_BUFFER, pointsToBuffer(indexes, Uint8Array), this.gl.STATIC_DRAW)
 
     // 顶点buffer
     const vertexBuffer = this.gl.createBuffer()
@@ -121,14 +117,7 @@ export class GRender {
       this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST)
 
       // 将图像上传到纹理
-      this.gl.texImage2D(
-        this.gl.TEXTURE_2D,
-        0,
-        this.gl.RGBA,
-        this.gl.RGBA,
-        this.gl.UNSIGNED_BYTE,
-        this.texture
-      )
+      this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, this.gl.UNSIGNED_BYTE, this.texture)
       // 将0号为例传递给着色器中的取样器变量
       this.gl.uniform1i(uSampler, 0)
     }
@@ -223,7 +212,9 @@ export class GRender {
       try {
         const res = await fetch(this.baseFragPath + name)
         if (res.ok) {
-          return await res.text()
+          const result = await res.text()
+          console.log(result)
+          return result
         } else {
           throw errorMsg
         }

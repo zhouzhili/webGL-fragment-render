@@ -1,5 +1,5 @@
-import { GRender } from './src/fragmentDraw'
-import glslLanguage from './src/glsl-language'
+import { GRender } from './core/fragmentDraw'
+import glslLanguage from './core/glsl-language'
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 
 function initCodeEditor() {
@@ -76,7 +76,8 @@ function initDraw(dataset) {
 const monacoIns = initCodeEditor()
 const gRender = new GRender({
   canvas: document.getElementById('gl-canvas'),
-  basePath: './fragments/'
+  basePath: './src/fragments/'
 })
 addEvent()
+
 initDraw({ name: 'coordinate' })
