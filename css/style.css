@@ -14,7 +14,7 @@ html {
   display: flex;
   height: 100%;
 }
-.menu-wrap{
+.menu-wrap {
   visibility: hidden;
   overflow-y: auto;
 }
@@ -30,7 +30,7 @@ html {
 }
 .menu,
 .menu-wrap:hover,
-.menu-wrap:focus{
+.menu-wrap:focus {
   visibility: visible;
 }
 .menu > li {
@@ -76,6 +76,14 @@ html {
   height: 18px;
   cursor: pointer;
 }
+.title .rep-link svg {
+  height: 24px;
+  width: 24px;
+}
+.title .rep-link a {
+  color: #868585;
+  text-decoration: none;
+}
 .canvas-wrap {
   display: flex;
 }
@@ -85,25 +93,21 @@ html {
   margin: auto;
 }
 
-
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-::-webkit-scrollbar
-{
-    width: 13px;
-    height: 6px;
-    background-color: #1E1E1E;
+::-webkit-scrollbar {
+  width: 13px;
+  height: 6px;
+  background-color: #1e1e1e;
 }
- 
+
 /*定义滚动条轨道 内阴影+圆角*/
-::-webkit-scrollbar-track
-{
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #1E1E1E;
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #1e1e1e;
 }
- 
+
 /*定义滑块 内阴影+圆角*/
-::-webkit-scrollbar-thumb
-{
-    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }
