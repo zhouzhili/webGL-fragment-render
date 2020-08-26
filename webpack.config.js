@@ -10,7 +10,7 @@ module.exports = function(env = {}) {
   const output = {
     path: outputPath,
     filename: 'app.js',
-    publicPath: '/'
+    publicPath: './'
   }
 
   const plugins = [
@@ -36,9 +36,13 @@ module.exports = function(env = {}) {
       }),
       new CopyWebpackPlugin([
         {
-          from: path.resolve(__dirname, './webGL_fragment'),
-          to: path.resolve(__dirname, './dist'),
+          from: path.join(__dirname, './src/fragments'),
+          to: path.resolve(__dirname, './dist/src/fragments'),
           ignore: ['*.js', '*.html']
+        },
+        {
+          from: path.join(__dirname, './css'),
+          to: path.resolve(__dirname, './dist/css')
         }
       ])
     )
